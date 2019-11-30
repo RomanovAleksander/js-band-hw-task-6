@@ -21,6 +21,31 @@
   "parser": "babel-eslint",
   "plugins": ["jsx-a11y", "prettier"],
   "rules": {
+    "class-methods-use-this": [
+      "warn"
+    ],
+    "react/jsx-props-no-spreading": [
+      "warn"
+    ],
+    "jsx-a11y/click-events-have-key-events": [
+      "warn"
+    ],
+
+    "jsx-a11y/no-static-element-interactions": [
+      "warn"
+    ],
+    "no-plusplus": [
+      "warn"
+    ],
+    "react/no-unused-state": [
+      "warn"
+    ],
+    "react/prop-types": [
+      "warn"
+    ],
+    "jsx-a11y/no-onchange": [
+      "warn"
+    ],
     "react/jsx-filename-extension": [
       1, {"extensions": [".js", ".jsx"]}
     ]
