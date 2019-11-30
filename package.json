@@ -14,8 +14,7 @@
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "lint-fix": "eslint src --fix",
-    "deploy": "push-dir --dir=build --branch=gh-pages --cleanup"
+    "lint-fix": "eslint src --fix"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
