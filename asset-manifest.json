@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/js-band-hw-task-6/static/js/main.524c4356.chunk.js",
+    "main.js.map": "/js-band-hw-task-6/static/js/main.524c4356.chunk.js.map",
+    "runtime-main.js": "/js-band-hw-task-6/static/js/runtime-main.de2a5d39.js",
+    "runtime-main.js.map": "/js-band-hw-task-6/static/js/runtime-main.de2a5d39.js.map",
+    "static/js/2.3789383d.chunk.js": "/js-band-hw-task-6/static/js/2.3789383d.chunk.js",
+    "static/js/2.3789383d.chunk.js.map": "/js-band-hw-task-6/static/js/2.3789383d.chunk.js.map",
+    "index.html": "/js-band-hw-task-6/index.html",
+    "precache-manifest.77a747911a106808ae8865185e262f7e.js": "/js-band-hw-task-6/precache-manifest.77a747911a106808ae8865185e262f7e.js",
+    "service-worker.js": "/js-band-hw-task-6/service-worker.js",
+    "static/media/logo.svg": "/js-band-hw-task-6/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.de2a5d39.js",
+    "static/js/2.3789383d.chunk.js",
+    "static/js/main.524c4356.chunk.js"
+  ]
+}
