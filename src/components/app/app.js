@@ -3,11 +3,15 @@ import AppHeader from "../app-header";
 import Search from "../search";
 import ItemFilter from "../item-filter";
 import TodoList from "../todo-list";
+import Footer from "../footer";
+import ItemAddForm from "../item-from";
+import './app.css';
 
 export default class App extends React.Component {
   constructor() {
     super();
-    this.setId = 0;
+    this.setId = 1;
+    this.index = 0;
     this.state = {
       todoData: [
         this.createTodoItem('test', 'test', 'normal'),
@@ -16,7 +20,8 @@ export default class App extends React.Component {
       priority: 'all',
       completed: 'all',
       searchText: '',
-      showMenu: false
+      isFormOpen: false,
+      editedItem: []
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.AddItem = this.AddItem.bind(this);
@@ -25,6 +30,9 @@ export default class App extends React.Component {
     this.onFilterCChange = this.onFilterCChange.bind(this);
     this.onToggleDone = this.onToggleDone.bind(this);
     this.search = this.search.bind(this);
+    this.onToggleOpen = this.onToggleOpen.bind(this);
+    this.openForm = this.openForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
 
   onSearchChange(searchText) {
@@ -55,18 +63,50 @@ export default class App extends React.Component {
     });
   }
 
-  AddItem(title, description, priority) {
-    const newItem = this.createTodoItem(title, description, priority);
+  onToggleOpen(id) {
     this.setState(({todoData}) => {
+      const idx = todoData.findIndex((el) => el.id === id);
+      const oldItem = todoData[idx];
+      const newItem = {...oldItem, 'showMenu': !oldItem.showMenu};
       const newArray = [
-        ...todoData,
-        newItem
+        ...todoData.slice(0, idx),
+        newItem,
+        ...todoData.slice(idx + 1)
       ];
-
       return {
         todoData: newArray
-      }
+      };
     });
+  }
+
+  search(items, searchText) {
+    if (searchText === 0) {
+      return items;
+    }
+    return items.filter((item) => {
+      return item.title
+        .toLowerCase()
+        .indexOf(searchText.toLowerCase()) > -1;
+    });
+  }
+
+  openForm() {
+    this.setState({isFormOpen: true});
+  }
+
+  closeForm() {
+    this.setState({isFormOpen: false});
+  }
+
+  createTodoItem(title, description, priority) {
+    return {
+      title,
+      description,
+      priority,
+      done: false,
+      id: this.setId++,
+      showMenu: false
+    };
   }
 
   deleteItem(id) {
@@ -82,24 +122,17 @@ export default class App extends React.Component {
     })
   }
 
-  createTodoItem(title, description, priority) {
-    return {
-      title,
-      description,
-      priority,
-      done: false,
-      id: this.setId++
-    };
-  }
+  AddItem({title, description, priority}) {
+    const newItem = this.createTodoItem(title, description, priority);
+    this.setState(({todoData}) => {
+      const newArray = [
+        ...todoData,
+        newItem
+      ];
 
-  search(items, searchText) {
-    if (searchText === 0) {
-      return items;
-    }
-    return items.filter((item) => {
-      return item.title
-        .toLowerCase()
-        .indexOf(searchText.toLowerCase()) > -1;
+      return {
+        todoData: newArray
+      }
     });
   }
 
@@ -132,7 +165,10 @@ export default class App extends React.Component {
   }
 
   render() {
-    const {todoData, searchText, priority, completed} = this.state;
+    const {
+      todoData, searchText,
+      priority, completed,
+      isFormOpen} = this.state;
     const visibleBySearchAndPriority = this.filterByPriority(
       this.search(todoData, searchText),
       priority
@@ -142,25 +178,38 @@ export default class App extends React.Component {
       completed
     );
 
+
     return (
       <div className="wrapper">
         <AppHeader/>
         <main className="content">
-          <Search
-            onSearchChange={this.onSearchChange}
+          <div className="filter">
+            <Search
+              onSearchChange={this.onSearchChange}
+            />
+            <ItemFilter
+              priority={priority}
+              completed={completed}
+              onFilterPChange={this.onFilterPChange}
+              onFilterCChange={this.onFilterCChange}
+              openForm={this.openForm}
+            />
+          </div>
+          <TodoList
+            todos={visibleItems}
+            onDeleted={this.deleteItem}
+            onToggleDone={this.onToggleDone}
+            onToggleOpen={this.onToggleOpen}
+            onToggleEdit={this.openForm}
           />
-          <ItemFilter
-            priority={priority}
-            completed={completed}
-            onFilterPChange={this.onFilterPChange}
-            onFilterCChange={this.onFilterCChange}
+          <ItemAddForm
+            editedItem={this.editedItem}
+            isFormOpen = {isFormOpen}
+            closeForm = {this.closeForm}
+            onAdded={this.AddItem}
           />
         </main>
-        <TodoList
-          todos={visibleItems}
-          onDeleted={this.deleteItem}
-          onToggleDone={this.onToggleDone}
-        />
+        <Footer />
       </div>
     );
   }

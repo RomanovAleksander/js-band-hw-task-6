@@ -1,0 +1,64 @@
+.wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 610px;
+    border: 2px solid #000;
+    border-top: none;
+    border-bottom: none;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 96%;
+    min-height: 115px;
+}
+
+.filter__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 2% 2%;
+}
+
+input, select {
+    padding-left: 5px;
+}
+
+input, select, button, .todo, .form__content, .btn, .todo__menu {
+    border: 2px solid #000;
+    font-size: 16px;
+}
+
+.select {
+    height: 38px;
+    width: 178px;
+}
+input, select {
+    padding-left: 5px;
+}
+select {
+    cursor: pointer;
+}
+
+.btn {
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 5px 50px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.display_none {
+    display: none !important;
+}
