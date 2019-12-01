@@ -1,7 +1,7 @@
 import React from 'react';
-import './app-header.css';
+import './header.css';
 
-function AppHeader() {
+function Header() {
   return (
     <header className="header">
       <h1 className="header__title">TODOList</h1>
@@ -9,4 +9,4 @@ function AppHeader() {
   );
 }
 
-export default AppHeader;
+export default Header;
