@@ -1,10 +1,10 @@
 import React from 'react';
-import AppHeader from "../app-header";
-import Search from "../search";
-import ItemFilter from "../item-filter";
-import TodoList from "../todo-list";
-import Footer from "../footer";
-import ItemAddForm from "../item-from";
+import Header from "../Header";
+import Search from "../Search";
+import ItemFilter from "../ItemFilter";
+import TodoList from "../TodoList";
+import Footer from "../Footer";
+import ItemForm from "../ItemForm";
 import './app.css';
 
 export default class App extends React.Component {
@@ -20,11 +20,10 @@ export default class App extends React.Component {
       priority: 'all',
       completed: 'all',
       searchText: '',
-      isFormOpen: false,
-      editedItem: []
+      isFormOpen: false
     };
     this.deleteItem = this.deleteItem.bind(this);
-    this.AddItem = this.AddItem.bind(this);
+    this.addItem = this.addItem.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
     this.onFilterPChange = this.onFilterPChange.bind(this);
     this.onFilterCChange = this.onFilterCChange.bind(this);
@@ -122,7 +121,7 @@ export default class App extends React.Component {
     })
   }
 
-  AddItem({title, description, priority}) {
+  addItem({title, description, priority}) {
     const newItem = this.createTodoItem(title, description, priority);
     this.setState(({todoData}) => {
       const newArray = [
@@ -181,7 +180,7 @@ export default class App extends React.Component {
 
     return (
       <div className="wrapper">
-        <AppHeader/>
+        <Header/>
         <main className="content">
           <div className="filter">
             <Search
@@ -202,11 +201,10 @@ export default class App extends React.Component {
             onToggleOpen={this.onToggleOpen}
             onToggleEdit={this.openForm}
           />
-          <ItemAddForm
-            editedItem={this.editedItem}
+          <ItemForm
             isFormOpen = {isFormOpen}
             closeForm = {this.closeForm}
-            onAdded={this.AddItem}
+            onAdded={this.addItem}
           />
         </main>
         <Footer />

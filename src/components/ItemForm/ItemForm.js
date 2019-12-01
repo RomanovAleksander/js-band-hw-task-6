@@ -1,7 +1,7 @@
 import React from 'react';
-import './item-add-from.css';
+import './itemForm.css';
 
-export default class ItemAddForm extends React.Component {
+export default class ItemForm extends React.Component {
   constructor(props) {
     super();
     this.props = props;

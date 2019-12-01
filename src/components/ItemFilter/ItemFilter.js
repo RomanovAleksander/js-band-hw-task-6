@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './item-filter.css';
+import './itemFilter.css';
 
 export default class ItemFilter extends Component{
   constructor() {

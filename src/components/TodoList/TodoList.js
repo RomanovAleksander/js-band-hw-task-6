@@ -1,6 +1,6 @@
 import React from 'react';
-import TodoListItem from "../todo-list-item";
-import './todo-list.css';
+import TodoListItem from "../TodoListItem";
+import './todoList.css';
 
 function TodoList({ todos, onDeleted,
                     onToggleDone, onToggleOpen,
