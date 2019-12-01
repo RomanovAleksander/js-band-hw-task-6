@@ -27,10 +27,18 @@
     "react/jsx-props-no-spreading": [
       "warn"
     ],
+    "jsx-a11y/label-has-associated-control": [
+      "warn"
+    ],
     "jsx-a11y/click-events-have-key-events": [
       "warn"
     ],
-
+    "react/destructuring-assignment": [
+      "warn"
+    ],
+    "react/jsx-fragments": [
+      "warn"
+    ],
     "jsx-a11y/no-static-element-interactions": [
       "warn"
     ],

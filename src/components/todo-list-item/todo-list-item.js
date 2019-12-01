@@ -1,12 +1,13 @@
 import React from 'react';
+import './todo-list-item.css';
 
 export default function TodoListItem(props) {
   const {
     title, description, priority, done,
-    showMenu, onToggleOpen, onToggleDone,
-    onEdited, onDeleted
+    showMenu, onDeleted, onToggleDone,
+    onToggleOpen, onToggleEdit
   } = props;
-  let classNames = 'todo-list-item';
+  let classNames = 'todo';
   const isDone = done ? '' : ' display_none';
   const isShow = showMenu ? '' : ' display_none';
   if (done) {
@@ -23,19 +24,19 @@ export default function TodoListItem(props) {
         <div className="todo__button btn"
              onClick={onToggleOpen}>
           ...
-          <div className={`todo__menu ${isShow}`}>
-            <div className="todo__menu-item task-done"
-                 onClick={onToggleDone}>
-              done
-            </div>
-            <div className="todo__menu-item task-edit"
-                 onClick={onEdited}>
-              edit
-            </div>
-            <div className="todo__menu-item task-delete"
-                 onClick={onDeleted}>
-              delete
-            </div>
+        </div>
+        <div className={`todo__menu ${isShow}`}>
+          <div className="todo__menu-item task-done"
+               onClick={onToggleDone}>
+            done
+          </div>
+          <div className="todo__menu-item task-edit"
+               onClick={onToggleEdit}>
+            edit
+          </div>
+          <div className="todo__menu-item task-delete"
+               onClick={onDeleted}>
+            delete
           </div>
         </div>
       </div>

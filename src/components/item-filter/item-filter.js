@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './item-filter.css';
 
 export default class ItemFilter extends Component{
   constructor() {
@@ -27,9 +28,10 @@ export default class ItemFilter extends Component{
 
   render() {
     const {priority, completed} = this.state;
+    const {openForm} = this.props;
 
     return (
-      <div>
+      <React.Fragment>
         <div className="filter__item">
           <select className="select-status select"
                   key="status"
@@ -54,9 +56,11 @@ export default class ItemFilter extends Component{
           </select>
         </div>
         <div className="filter__item">
-          <button className="filter__create-btn btn" type="button">Create</button>
+          <button className="filter__create-btn btn"
+                  type="button"
+                  onClick={openForm}>Create</button>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
