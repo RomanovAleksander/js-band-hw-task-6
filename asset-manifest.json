@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.js": "/js-band-hw-task-6/static/js/main.89123436.chunk.js",
-    "main.js.map": "/js-band-hw-task-6/static/js/main.89123436.chunk.js.map",
+    "main.css": "/js-band-hw-task-6/static/css/main.d9ad5ede.chunk.css",
+    "main.js": "/js-band-hw-task-6/static/js/main.ba53e07c.chunk.js",
+    "main.js.map": "/js-band-hw-task-6/static/js/main.ba53e07c.chunk.js.map",
     "runtime-main.js": "/js-band-hw-task-6/static/js/runtime-main.de2a5d39.js",
     "runtime-main.js.map": "/js-band-hw-task-6/static/js/runtime-main.de2a5d39.js.map",
     "static/js/2.3961ce96.chunk.js": "/js-band-hw-task-6/static/js/2.3961ce96.chunk.js",
     "static/js/2.3961ce96.chunk.js.map": "/js-band-hw-task-6/static/js/2.3961ce96.chunk.js.map",
     "index.html": "/js-band-hw-task-6/index.html",
-    "precache-manifest.1c28225ae0351a0a43822fb654fc3689.js": "/js-band-hw-task-6/precache-manifest.1c28225ae0351a0a43822fb654fc3689.js",
-    "service-worker.js": "/js-band-hw-task-6/service-worker.js"
+    "precache-manifest.549a97fea33e9b5baf065a88a4dd3b06.js": "/js-band-hw-task-6/precache-manifest.549a97fea33e9b5baf065a88a4dd3b06.js",
+    "service-worker.js": "/js-band-hw-task-6/service-worker.js",
+    "static/css/main.d9ad5ede.chunk.css.map": "/js-band-hw-task-6/static/css/main.d9ad5ede.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.de2a5d39.js",
     "static/js/2.3961ce96.chunk.js",
-    "static/js/main.89123436.chunk.js"
+    "static/css/main.d9ad5ede.chunk.css",
+    "static/js/main.ba53e07c.chunk.js"
   ]
 }
