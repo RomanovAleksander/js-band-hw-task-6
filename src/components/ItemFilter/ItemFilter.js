@@ -8,23 +8,21 @@ export default class ItemFilter extends Component{
       priority: 'all',
       completed: 'all'
     };
-    this.onFilterPChange = this.onFilterPChange.bind(this);
-    this.onFilterCChange = this.onFilterCChange.bind(this);
   }
 
-  onFilterPChange(e) {
+  onFilterPChange = (e) => {
     const {onFilterPChange} = this.props;
     const priority = e.target.value;
     this.setState({priority});
     onFilterPChange(priority);
-  }
+  };
 
-  onFilterCChange(e) {
+  onFilterCChange = (e) => {
     const {onFilterCChange} = this.props;
     const completed = e.target.value;
     this.setState({completed});
     onFilterCChange(completed);
-  }
+  };
 
   render() {
     const {priority, completed} = this.state;
