@@ -7,15 +7,14 @@ export default class Search extends Component{
     this.state = {
       searchText: ''
     };
-    this.onSearchChange = this.onSearchChange.bind(this);
   }
 
-  onSearchChange(e) {
+  onSearchChange = (e) => {
     const {onSearchChange} = this.props;
     const searchText = e.target.value;
     this.setState({searchText});
     onSearchChange(searchText);
-  }
+  };
 
   render() {
     const {searchText} = this.state;

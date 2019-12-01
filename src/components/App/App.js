@@ -22,31 +22,21 @@ export default class App extends React.Component {
       searchText: '',
       isFormOpen: false
     };
-    this.deleteItem = this.deleteItem.bind(this);
-    this.addItem = this.addItem.bind(this);
-    this.onSearchChange = this.onSearchChange.bind(this);
-    this.onFilterPChange = this.onFilterPChange.bind(this);
-    this.onFilterCChange = this.onFilterCChange.bind(this);
-    this.onToggleDone = this.onToggleDone.bind(this);
-    this.search = this.search.bind(this);
-    this.onToggleOpen = this.onToggleOpen.bind(this);
-    this.openForm = this.openForm.bind(this);
-    this.closeForm = this.closeForm.bind(this);
   }
 
-  onSearchChange(searchText) {
+  onSearchChange = (searchText) => {
     this.setState({searchText})
-  }
+  };
 
-  onFilterPChange(priority) {
+  onFilterPChange = (priority) => {
     this.setState({priority})
-  }
+  };
 
-  onFilterCChange(completed) {
+  onFilterCChange = (completed) => {
     this.setState({completed})
-  }
+  };
 
-  onToggleDone(id) {
+  onToggleDone = (id) => {
     this.setState(({todoData}) => {
       const idx = todoData.findIndex((el) => el.id === id);
       const oldItem = todoData[idx];
@@ -60,9 +50,9 @@ export default class App extends React.Component {
         todoData: newArray
       };
     });
-  }
+  };
 
-  onToggleOpen(id) {
+  onToggleOpen = (id) => {
     this.setState(({todoData}) => {
       const idx = todoData.findIndex((el) => el.id === id);
       const oldItem = todoData[idx];
@@ -76,9 +66,9 @@ export default class App extends React.Component {
         todoData: newArray
       };
     });
-  }
+  };
 
-  search(items, searchText) {
+  search = (items, searchText) => {
     if (searchText === 0) {
       return items;
     }
@@ -87,17 +77,17 @@ export default class App extends React.Component {
         .toLowerCase()
         .indexOf(searchText.toLowerCase()) > -1;
     });
-  }
+  };
 
-  openForm() {
+  openForm = () => {
     this.setState({isFormOpen: true});
-  }
+  };
 
-  closeForm() {
+  closeForm = () => {
     this.setState({isFormOpen: false});
-  }
+  };
 
-  createTodoItem(title, description, priority) {
+  createTodoItem = (title, description, priority) => {
     return {
       title,
       description,
@@ -106,9 +96,9 @@ export default class App extends React.Component {
       id: this.setId++,
       showMenu: false
     };
-  }
+  };
 
-  deleteItem(id) {
+  deleteItem = (id) => {
     this.setState(({todoData}) => {
       const idx = todoData.findIndex((el) => el.id === id);
       const before = todoData.slice(0, idx);
@@ -119,9 +109,9 @@ export default class App extends React.Component {
         todoData: newArray
       }
     })
-  }
+  };
 
-  addItem({title, description, priority}) {
+  addItem = ({title, description, priority}) => {
     const newItem = this.createTodoItem(title, description, priority);
     this.setState(({todoData}) => {
       const newArray = [
@@ -133,9 +123,9 @@ export default class App extends React.Component {
         todoData: newArray
       }
     });
-  }
+  };
 
-  filterByPriority(items, priority) {
+  filterByPriority = (items, priority) => {
     switch (priority) {
       case 'all':
         return items;
@@ -148,9 +138,9 @@ export default class App extends React.Component {
       default:
         return items;
     }
-  }
+  };
 
-  filterByCompleted(items, completed) {
+  filterByCompleted = (items, completed) => {
     switch (completed) {
       case 'all':
         return items;
@@ -161,13 +151,14 @@ export default class App extends React.Component {
       default:
         return items;
     }
-  }
+  };
 
   render() {
     const {
       todoData, searchText,
       priority, completed,
-      isFormOpen} = this.state;
+      isFormOpen
+    } = this.state;
     const visibleBySearchAndPriority = this.filterByPriority(
       this.search(todoData, searchText),
       priority
@@ -176,7 +167,6 @@ export default class App extends React.Component {
       visibleBySearchAndPriority,
       completed
     );
-
 
     return (
       <div className="wrapper">
