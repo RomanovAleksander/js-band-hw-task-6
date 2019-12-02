@@ -12,4 +12,4 @@
   * Todo list is available under /todos route;
   * Other routes are unavailable and respond with not found UI.
 * Application based on Wireframes provided in the Arch notes section.
-* [App on GitHub Pages](https://romanovaleksander.github.io/js-band-test-task/)
+* [App on GitHub Pages](https://romanovaleksander.github.io/js-band-hw-task-6)
