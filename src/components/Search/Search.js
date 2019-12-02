@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import './search.css';
+import React, { Component } from "react";
+import "./search.css";
 
-export default class Search extends Component{
+export default class Search extends Component {
   constructor() {
     super();
     this.state = {
-      searchText: ''
+      searchText: ""
     };
   }
 
-  onSearchChange = (e) => {
-    const {onSearchChange} = this.props;
+  onSearchChange = e => {
+    const { onSearchChange } = this.props;
     const searchText = e.target.value;
-    this.setState({searchText});
+    this.setState({ searchText });
     onSearchChange(searchText);
   };
 
   render() {
-    const {searchText} = this.state;
+    const { searchText } = this.state;
     return (
       <div className="filter__item">
         <input
