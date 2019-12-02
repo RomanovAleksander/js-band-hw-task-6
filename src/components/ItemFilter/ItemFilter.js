@@ -1,39 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-export default class ItemFilter extends Component{
+export default class ItemFilter extends Component {
   constructor() {
     super();
     this.state = {
-      priority: 'all',
-      completed: 'all'
+      priority: "all",
+      completed: "all"
     };
   }
 
   handlePriorityChange = ({ target }) => {
-    const {onPriorityChange} = this.props;
+    const { onPriorityChange } = this.props;
     const priority = target.value;
-    this.setState({priority});
+    this.setState({ priority });
     onPriorityChange(priority);
   };
 
   handleStatusChange = ({ target }) => {
-    const {onStatusChange} = this.props;
+    const { onStatusChange } = this.props;
     const completed = target.value;
-    this.setState({completed});
+    this.setState({ completed });
     onStatusChange(completed);
   };
 
   render() {
-    const {priority, completed} = this.state;
-    const {openForm} = this.props;
+    const { priority, completed } = this.state;
+    const { openForm } = this.props;
 
     return (
       <React.Fragment>
         <div className="filter__item">
-          <select className="select-status select"
-                  key="status"
-                  onChange={this.handleStatusChange}
-                  value={completed}
+          <select
+            className="select-status select"
+            key="status"
+            onChange={this.handleStatusChange}
+            value={completed}
           >
             <option value="all">all</option>
             <option value="open">open</option>
@@ -41,10 +42,11 @@ export default class ItemFilter extends Component{
           </select>
         </div>
         <div className="filter__item">
-          <select className="select-priority select"
-                  key="priority"
-                  onChange={this.handlePriorityChange}
-                  value={priority}
+          <select
+            className="select-priority select"
+            key="priority"
+            onChange={this.handlePriorityChange}
+            value={priority}
           >
             <option value="all">all</option>
             <option value="high">high</option>
@@ -53,9 +55,13 @@ export default class ItemFilter extends Component{
           </select>
         </div>
         <div className="filter__item">
-          <button className="filter__create-btn btn"
-                  type="button"
-                  onClick={openForm}>Create</button>
+          <button
+            className="filter__create-btn btn"
+            type="button"
+            onClick={openForm}
+          >
+            Create
+          </button>
         </div>
       </React.Fragment>
     );

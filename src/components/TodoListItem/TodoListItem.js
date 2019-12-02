@@ -1,47 +1,50 @@
-import React from 'react';
+import React from "react";
 
 export default function TodoListItem(props) {
   const {
-    title, description, priority, done,
-    showMenu, onDeleted, onToggleDone,
-    onToggleOpen, onToggleEdit
+    title,
+    description,
+    priority,
+    done,
+    showMenu,
+    onDeleted,
+    onToggleDone,
+    onToggleOpen,
+    onToggleEdit
   } = props;
-  let classNames = 'todo';
-  const isDone = done ? '' : ' display_none';
-  const isShow = showMenu ? '' : ' display_none';
+  let classNames = "todo";
+  const isDone = done ? "" : " display_none";
+  const isShow = showMenu ? "" : " display_none";
   if (done) {
-    classNames += ' done';
+    classNames += " done";
   }
 
   return (
     <div className={classNames}>
-      <div className={`todo__check ${isDone}`}
-           onClick={onToggleDone}>
-        <span className="glyphicon glyphicon-ok"
-              aria-hidden="true"> </span>
+      <div className={`todo__check ${isDone}`} onClick={onToggleDone}>
+        <span className="glyphicon glyphicon-ok" aria-hidden="true">
+          {" "}
+        </span>
       </div>
       <h3 className="todo__title">{title}</h3>
       <div className="todo__description">{description}</div>
       <div className="todo__footer">
         <div className="todo__priority">{priority}</div>
-        <div className="todo__button btn"
-             onClick={onToggleOpen}>...
+        <div className="todo__button btn" onClick={onToggleOpen}>
+          ...
         </div>
         <div className={`todo__menu ${isShow}`}>
-          <div className="todo__menu-item task-done"
-               onClick={onToggleDone}>
+          <div className="todo__menu-item task-done" onClick={onToggleDone}>
             done
           </div>
-          <div className="todo__menu-item task-edit"
-               onClick={onToggleEdit}>
+          <div className="todo__menu-item task-edit" onClick={onToggleEdit}>
             edit
           </div>
-          <div className="todo__menu-item task-delete"
-               onClick={onDeleted}>
+          <div className="todo__menu-item task-delete" onClick={onDeleted}>
             delete
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
