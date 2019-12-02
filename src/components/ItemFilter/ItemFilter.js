@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './itemFilter.css';
 
 export default class ItemFilter extends Component{
   constructor() {
@@ -10,18 +9,18 @@ export default class ItemFilter extends Component{
     };
   }
 
-  onFilterPChange = (e) => {
-    const {onFilterPChange} = this.props;
-    const priority = e.target.value;
+  handlePriorityChange = ({ target }) => {
+    const {onPriorityChange} = this.props;
+    const priority = target.value;
     this.setState({priority});
-    onFilterPChange(priority);
+    onPriorityChange(priority);
   };
 
-  onFilterCChange = (e) => {
-    const {onFilterCChange} = this.props;
-    const completed = e.target.value;
+  handleStatusChange = ({ target }) => {
+    const {onStatusChange} = this.props;
+    const completed = target.value;
     this.setState({completed});
-    onFilterCChange(completed);
+    onStatusChange(completed);
   };
 
   render() {
@@ -33,7 +32,7 @@ export default class ItemFilter extends Component{
         <div className="filter__item">
           <select className="select-status select"
                   key="status"
-                  onChange={this.onFilterCChange}
+                  onChange={this.handleStatusChange}
                   value={completed}
           >
             <option value="all">all</option>
@@ -44,7 +43,7 @@ export default class ItemFilter extends Component{
         <div className="filter__item">
           <select className="select-priority select"
                   key="priority"
-                  onChange={this.onFilterPChange}
+                  onChange={this.handlePriorityChange}
                   value={priority}
           >
             <option value="all">all</option>

@@ -1,15 +1,14 @@
 import React from 'react';
-import './itemForm.css';
 
 export default class ItemForm extends React.Component {
   constructor(props) {
-    super();
-    this.props = props;
-    this.state = {
+    super(props);
+    this.default = {
       title: '',
       description: '',
       priority: 'normal'
     };
+    this.state = props.todo || this.default;
   }
 
   onTitleChange = (e) => {
@@ -32,12 +31,13 @@ export default class ItemForm extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.onAdded(this.state);
-    this.setState({
-      title: '',
-      description: '',
-      priority: 'normal'
-    });
+    if (this.props.todo) {
+      this.props.onUpdated(this.state);
+    } else {
+      this.props.onAdded(this.state);
+    }
+    this.setState({ ...this.default });
+    this.props.closeForm();
   };
 
 
@@ -77,7 +77,7 @@ export default class ItemForm extends React.Component {
             </button>
             <button type="submit"
                     className="button btn"
-                    onClick={closeForm}>Save</button>
+            >Save</button>
           </div>
         </form>
       </div>
