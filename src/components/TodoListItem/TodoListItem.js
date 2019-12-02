@@ -1,5 +1,4 @@
 import React from 'react';
-import './todoListItem.css';
 
 export default function TodoListItem(props) {
   const {
@@ -16,14 +15,17 @@ export default function TodoListItem(props) {
 
   return (
     <div className={classNames}>
-      <div className={`todo__check ${isDone}`}>✔</div>
+      <div className={`todo__check ${isDone}`}
+           onClick={onToggleDone}>
+        <span className="glyphicon glyphicon-ok"
+              aria-hidden="true"> </span>
+      </div>
       <h3 className="todo__title">{title}</h3>
       <div className="todo__description">{description}</div>
       <div className="todo__footer">
         <div className="todo__priority">{priority}</div>
         <div className="todo__button btn"
-             onClick={onToggleOpen}>
-          ...
+             onClick={onToggleOpen}>...
         </div>
         <div className={`todo__menu ${isShow}`}>
           <div className="todo__menu-item task-done"

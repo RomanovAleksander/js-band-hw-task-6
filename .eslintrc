@@ -54,6 +54,9 @@
     "jsx-a11y/no-onchange": [
       "warn"
     ],
+    "no-unneeded-ternary": [
+      "warn"
+    ],
     "react/jsx-filename-extension": [
       1, {"extensions": [".js", ".jsx"]}
     ]
